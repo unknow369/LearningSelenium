@@ -1,0 +1,119 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>com.pagepattern.appium</groupId>
+    <artifactId>PagePatternAppium</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <source>8</source>
+                    <encoding>UTF-8</encoding>
+                    <target>8</target>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>2.18.1</version>
+                <configuration>
+                    <properties>
+                        <Platform>${Platform}</Platform>
+                    </properties>
+                    <argLine>--add-opens java.base/java.util=ALL-UNNAMED --add-opens java.base/java.lang=ALL-UNNAMED</argLine>
+                </configuration>
+            </plugin>
+        </plugins>
+        <resources>
+	        <resource>
+	              <directory>drivers</directory>
+	              <includes>
+	              <include>**/*</include>
+	              </includes>
+            </resource>
+        </resources>
+    </build>
+ 
+ 
+    <repositories>
+        <repository>
+            <id>jitpack.io</id>
+            <url>https://jitpack.io</url>
+        </repository>
+    </repositories>
+    
+	<dependencies>
+			<dependency>
+				 <groupId>org.testng</groupId>
+				 <artifactId>testng</artifactId>
+				 <version>7.4.0</version>
+				 <scope>test</scope>
+			</dependency>
+	        <dependency>
+	            <groupId>com.github.saikrishna321</groupId>
+	            <artifactId>AppiumTestDistribution</artifactId>
+	            <version>14.0.1</version>
+	        </dependency>
+	        <dependency>
+	            <groupId>log4j</groupId>
+	            <artifactId>log4j</artifactId>
+	            <version>LATEST</version>
+	        </dependency>
+	 
+			<dependency>
+			    <groupId>com.opencsv</groupId>
+			    <artifactId>opencsv</artifactId>
+			    <version>5.5</version> <!-- Use the latest version available -->
+			</dependency>
+	 
+	 
+	        <!-- https://mvnrepository.com/artifact/com.googlecode.json-simple/json-simple -->
+	        <dependency>
+	            <groupId>com.googlecode.json-simple</groupId>
+	            <artifactId>json-simple</artifactId>
+	            <version>1.1</version>
+	        </dependency>
+	        <dependency>
+	            <groupId>io.appium</groupId>
+	            <artifactId>java-client</artifactId>
+	            <version>8.5.0</version>
+	            <scope>LATEST</scope>
+	            <exclusions>
+	            	<exclusion>
+	            		<groupId>org.seleniumhq.selenium</groupId>
+	            		<artifactId>selenium-api</artifactId>
+	            	</exclusion>
+	            </exclusions>
+	        </dependency>
+	        <dependency>
+			   	    <groupId>io.github.bonigarcia</groupId>
+			        <artifactId>webdrivermanager</artifactId>
+			        <version>5.0.3</version>
+			</dependency>
+	        <dependency>
+				 <groupId>org.seleniumhq.selenium</groupId>
+				 <artifactId>selenium-java</artifactId>
+				 <version>4.16.1</version>
+				 <scope>test</scope>
+			</dependency>
+			<dependency>
+		        <groupId>org.seleniumhq.selenium</groupId>
+		        <artifactId>selenium-remote-driver</artifactId>
+		        <version>4.16.1</version>
+		        <exclusions>
+		        	<exclusion>
+		        		<groupId>org.seleniumhq.selenium</groupId>
+		        		<artifactId>selenium-api</artifactId>
+		        	</exclusion>
+		        </exclusions>
+			</dependency>
+	    </dependencies>
+    <properties>
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.target>1.8</maven.compiler.target>
+    </properties>
+</project>
